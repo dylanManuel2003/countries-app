@@ -1,7 +1,7 @@
 import Styles from '../../styles/Header.module.css';
 import { useRouter } from 'next/router';
 
-const index = () => {
+const Header = () => {
   const router = useRouter();
   return (
     <header className={Styles.navbar}>
@@ -11,4 +11,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Header

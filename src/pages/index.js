@@ -1,19 +1,15 @@
-import Head from 'next/head';
 import Header from '../components/header/index';
 import Home from '../components/home/index';
+import Layout from '../components/layout';
 
 
 export default function Index({data}) {
   return (
-    <>
-      <Head>
-        <title>Countries App</title>
-      </Head>
-      <Header /> 
+    <Layout>
       <Home
         data={data}
       />
-    </>
+    </Layout>
   )
 }
 

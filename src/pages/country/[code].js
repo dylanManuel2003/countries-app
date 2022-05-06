@@ -1,54 +1,54 @@
-import Header from '../../components/header/index';
+import Layout from '../../components/layout';
 import Styles from '../../styles/Country.module.css';
 
 export default function Country({data}) {
     return (
-        <>
-            <Header />
+        <Layout>
+            <section className={Styles.country}>
             {
                 data.map((x) => {
                     return (
-                        <section className={Styles.country}>
-                            <head>
-                                <title>{`Country ${x.name.common}`}</title>
-                            </head>
-                            <div className={Styles.section_country}>
-                                <img src={x.flags.png} alt={`flag country ${x.name.common}`} />
-                                <div className={Styles.section_country_text}>
-                                    <h3>{x.name.common}</h3>
-                                    <ul>
-                                        <li>
-                                            <b>Native name:</b> {x.name.official}
-                                        </li>
-                                        <li>
-                                            <b>Population:</b> {x.population}
-                                        </li>
-                                        <li>
-                                            <b>Region:</b> {x.region}
-                                        </li>
-                                        <li>
-                                            <b>Subregion:</b> {x.subregion}
-                                        </li>
-                                        <li>
-                                            <b>Capital:</b> {x.capital}
-                                        </li>
-                                        {/* <li>
-                                            <b>Languages:</b> {x.languages}
-                                        </li> */}
-                                    </ul>
+                        <div className={Styles.section_country} key={x.cca2}> 
+                            <img src={x.flags.png} alt={`flag country ${x.name.common}`} />
+                            <div className={Styles.section_country_text}>
+                                <h3>{x.name.common}</h3>
+                                <ul>
+                                    <li>
+                                        <b>Native name:</b> {x.name.official}
+                                    </li>
+                                    <li>
+                                        <b>Population:</b> {x.population}
+                                    </li>
+                                    <li>
+                                        <b>Region:</b> {x.region}
+                                    </li>
+                                    <li>
+                                        <b>Subregion:</b> {x.subregion}
+                                    </li>
+                                    <li>
+                                        <b>Capital:</b> {x.capital}
+                                    </li>
+                                    {/* <li>
+                                        <b>Languages:</b> {x.languages}
+                                    </li> */}
+                                </ul>
+                                {/* <div>
                                     <h5>Borders: </h5>
-                                    <div>{
-                                        x.borders == [] ? (
-                                            x.borders.map((x) => <span className={Styles.borderCountries}>{x}</span>) 
-                                        ) : ''
-                                    }</div>
-                                </div>
+                                    {
+                                        x.borders === [] 
+                                        ? (
+                                            x.borders.map((x) => <span className={Styles.borderCountries} key={x}>{x}</span>) 
+                                          ) 
+                                        : ''
+                                    }
+                                </div> */}
                             </div>
-                        </section>
+                        </div>
                     )
                 })
             }
-        </>
+            </section>
+        </Layout>
     )
 }
 

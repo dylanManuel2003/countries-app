@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 
-const Home = ({data}) => {
+export default function Home({data}) {
     if (data !== undefined) {
         var isData = true
     } else {
@@ -50,29 +50,28 @@ const Home = ({data}) => {
                     ? searchedCountry.map((x) => {
                         const linkURLid = x.cca2;
                         return (
-                            <button onClick={() => router.push({
-                                pathname: '/country/[code]',
-                                query: { code: linkURLid },
-                            })} className={Styles.card}>
-                                <div>    
-                                    <img src={x.flags.png} alt={`flag country ${x.name.common}`} />
-                                    <div className={Styles.card_text}>
-                                        <h3>{x.name.common}</h3>
-                                        <ul>
-                                            <li>
-                                                <b>Population:</b> {x.population}
-                                            </li>
-                                            <li>
-                                                <b>Region:</b> {x.subregion}
-                                            </li>
-                                            <li>
-                                                <b>Capital:</b> {x.capital}
-                                            </li>
-                                            <li>
-                                                <b>Capital:</b> {x.cca2}
-                                            </li>
-                                        </ul>
-                                    </div>
+                            <button 
+                                onClick={() => router.push({
+                                    pathname: '/country/[code]',
+                                    query: { code: linkURLid },
+                                })} 
+                                className={Styles.card}
+                                key={x.tld}
+                            >   
+                                <img src={x.flags.png} alt={`flag country ${x.name.common}`} />
+                                <div className={Styles.card_text}>
+                                    <h3>{x.name.common}</h3>
+                                    <ul>
+                                        <li>
+                                            <b>Population:</b> {x.population}
+                                        </li>
+                                        <li>
+                                            <b>Region:</b> {x.subregion}
+                                        </li>
+                                        <li>
+                                            <b>Capital:</b> {x.capital}
+                                        </li>
+                                    </ul>
                                 </div>
                             </button>
                         )
@@ -84,4 +83,4 @@ const Home = ({data}) => {
     )
 }
 
-export default Home
+
