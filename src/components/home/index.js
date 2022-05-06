@@ -30,7 +30,6 @@ const Home = ({data}) => {
     }else{
         searchedCountry = info.filter(x => {
             const countryText = x.name.common.toLowerCase();
-            console.log(countryText)
             const searchText = searchValue.toLowerCase();
             return countryText.includes(searchText);
         }
